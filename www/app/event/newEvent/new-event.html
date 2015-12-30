@@ -1,0 +1,47 @@
+<ion-content class="has-header">
+
+    <form name="authorizationForm" novalidate="" ng-submit="vm.addNewEvent(authorizationForm)">
+        <label class="item item-input">
+            <span class="input-label kurac">Od kad:</span>
+            <input type="datetime-local" ng-model="vm.authorizationForm.startTime">
+        </label>        
+
+
+        <label class="item item-input">
+            <span class="input-label">Do kad:</span>
+            <input type="datetime-local" name="endTime" placeholder="yyyy-MM-ddTHH:mm:ss" ng-model="vm.authorizationForm.endTime">
+        </label>
+
+        <label class="item item-input">
+            <span class="input-label">Opis</span>
+            <input type="text"  name="description" ng-model="vm.authorizationForm.description" ng-minlength="4" required placeholder="Dodaj opis!"/>
+        </label>
+        <div class="error-container" ng-show="(authorizationForm.description.$error && authorizationForm.description.$dirty) || (authorizationForm.description.$error && authorizationForm.$submitted)" ng-messages="authorizationForm.description.$error">
+            <div ng-messages-include="error-list.html"></div>
+        </div>
+        <label class="item item-input">
+            <span class="input-label">Trajanje</span>
+            <input type="text" ng-model="vm.authorizationForm.duration" ng-readonly="true" />
+            <span class="input-label" style="margin-left:-38px">minuta</span>
+        </label>
+
+        <button class="button button-full button-positive" type="submit">
+            Dodaj
+        </button>
+
+    </form>
+</ion-content>
+
+
+<!--template for ngMessages-->
+
+<script id="error-list.html" type="text/ng-template">
+    <div class="error" ng-message="required">
+        <i class="ion-information-circled"></i>
+        This field is required!
+    </div>
+    <div class="error" ng-message="minlength" style="font-size:8px;">
+        <i class="ion-information-circled"></i>
+        Minimum length of this field is 4 characters!
+    </div>
+</script>  

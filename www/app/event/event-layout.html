@@ -1,0 +1,24 @@
+<ion-side-menus>
+    <ion-pane ion-side-menu-content>
+        <div class="bar bar-energized item-button-right">
+            <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+            <button ng-click="vm.goBack()" class="button button-icon icon ion-arrow-left-c" style="margin-right:85%"></button>
+        </div>
+        <ion-nav-view name="mainContent"></ion-nav-view>
+    </ion-pane>
+
+
+    <ion-side-menu side="right">
+        <header class="bar bar-header bar-energized">
+            <h1 class="title">Dodaj standardne</h1>
+        </header>
+        <ion-content class="has-header">
+            <ion-list>
+                <ion-item nav-clear menu-close ng-click="vm.addPreparedObligation('jutarnje-plivanje')">Bazen ujutro</ion-item>
+                <ion-item nav-clear menu-close ng-click="vm.addPreparedObligation('popodnevno-plivanje')">Bazen popodne</ion-item>
+                <ion-item nav-clear menu-close ng-click="vm.addPreparedObligation('fakultet')">Fax</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>
+
