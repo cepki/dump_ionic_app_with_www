@@ -11,7 +11,7 @@ angular.module("scheduleApp", ["ionic", "ngMessages", 'ionic-datepicker', 'ionic
     });
     var now = new Date(Date.now());
     (function () { //add offten obligations
-        if (!!$localstorage.getObject('jutarnje-plivanje'))
+        if (!$localstorage.getObject('jutarnje-plivanje'))
         {
             $localstorage.setObject('jutarnje-plivanje', {
                 startTime: new Date(now.getFullYear(), now.getMonth(), now.getUTCDate(), 10, 0),
@@ -34,7 +34,7 @@ angular.module("scheduleApp", ["ionic", "ngMessages", 'ionic-datepicker', 'ionic
         }
 
 
-        if(!!$localstorage.getObject('all-obligations'))
+        if(!$localstorage.getObject('all-obligations'))
         {
             $localstorage.setObject('all-obligations', {
                 allObligations: []

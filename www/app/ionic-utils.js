@@ -18,4 +18,4 @@ angular.module('ionic.utils', [])
             $window.localStorage.removeItem(key);
         }
     }
-}]);
+}]);    

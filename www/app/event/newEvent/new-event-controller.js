@@ -9,6 +9,8 @@
         var now = new Date(Date.now());
 
         function getTwoDatesDiffrenceInTime(firstDate, secondDate) {
+            console.log(firstDate);
+            console.log(secondDate);
             var diffrence = Math.abs(secondDate - firstDate);
             var minutesDiffrence = Math.floor((diffrence / 1000) / 60);
             return minutesDiffrence;
@@ -21,23 +23,23 @@
         };
 
 
-        $scope.$watch(angular.bind(this, function () {
-            return this.authorizationForm.startTime;
-        }), function (newVal) {
-            if(newVal > vm.authorizationForm.endTime)
-            {
-                vm.authorizationForm.endTime = newVal;
-            }
-            vm.authorizationForm.duration = getTwoDatesDiffrenceInTime(vm.authorizationForm.endTime, vm.authorizationForm.startTime);
-        });
+        // $scope.$watch(angular.bind(this, function () {
+        //     return this.authorizationForm.startTime;
+        // }), function (newVal) {
+        //     if(newVal > vm.authorizationForm.endTime)
+        //     {
+        //         vm.authorizationForm.endTime = newVal;
+        //     }
+        //     vm.authorizationForm.duration = getTwoDatesDiffrenceInTime(vm.authorizationForm.endTime, vm.authorizationForm.startTime);
+        // });
 
-        $scope.$watch(angular.bind(this, function () {
-            return this.authorizationForm.endTime; 
-        }), function (newVal) {
-            if (newVal > vm.authorizationForm.endTime) {
-                vm.authorizationForm.endTime = newVal;
-            }
-        });
+        // $scope.$watch(angular.bind(this, function () {
+        //     return this.authorizationForm.endTime; 
+        // }), function (newVal) {
+        //     if (newVal > vm.authorizationForm.endTime) {
+        //         vm.authorizationForm.endTime = newVal;
+        //     }
+        // });
 
         vm.addPreparedObligation = function (preparedObligationKey)
         {
@@ -83,7 +85,7 @@
                 var newObligation = {
                     startTime: vm.authorizationForm.startTime,
                     endTime: vm.authorizationForm.endTime,
-                    duration: vm.authorizationForm.duration,
+                    duration: getTwoDatesDiffrenceInTime(vm.authorizationForm.endTime, vm.authorizationForm.startTime),
                     description: vm.authorizationForm.description
                 }
                 
